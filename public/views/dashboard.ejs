@@ -1,0 +1,163 @@
+<!-- Coding by Miftah GanzZ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AzzApi Free</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="https://telegra.ph/file/43a559daf6d72afea4b15.jpg" type="image/png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<script src="https://kit.fontawesome.com/8a2acf6851.js" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+
+<link rel="stylesheet" href="asset/css/dashboard.css">
+</head>
+
+<body>
+  
+  
+  <!-- Navbar -->
+  <div class="navbar">
+  <div class="menu-btn" onclick="toggleSidebar()">
+      <i class="fas fa-bars" id="menu-icon"></i>
+    </div>
+    <div class="right-icons">
+      <div class="dropdown">
+        <div class="notification-btn" onclick="toggleNotificationDropdown(event)"><i class="fas fa-bell"></i></div>
+        <div class="dropdown-content" id="notification-dropdown">
+          <hr />
+          <div><h4><i class="fi fi-rr-browser" style="color: green;"></i> New Ui ! </h4></div><hr />
+        <div><h4><i class="fas fa-code" style="color: red;"></i> New Features !</h4></div><hr />
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="chat-btn" onclick="toggleChat()"><i class="fa-solid fa-message"></i></div>
+        <div class="dropdown-content" id="chat-dropdown">
+          <iframe class="chatbox-frame" src="https://www5.cbox.ws/box/?boxid=944811&boxtag=3UoBYj" width="100%" height="450" frameborder="0" scrolling="auto"></iframe>
+        </div>
+      </div>
+      <div class="dark-mode-btn" onclick="toggleDarkMode()">
+        <i class="fas fa-adjust"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="menu">
+      <div class="profile">
+        <img src="/asset/image/favicon.jpg" alt="Gambar Profil" class="profile-image">
+  <div class="profile-info">
+    <h3>AzzApi</h3>
+  </div>
+</div>
+
+      <hr />
+      <h4 style="text-align: left;">Pages</h4>
+      <h4><a href="/" ><i class="fas fa-home"></i> Home</a></h4>
+      <h4><a href="/dashboard"><i class="fas fa-table"></i> Dashboard</a></h4>
+      <h4><a href="/changelog"><i class="fi fi-sr-rewind"></i> Changelog</a></h4>
+      <h4><a href="/donasi"><i class="fa-solid fa-circle-dollar-to-slot"></i> Donate</a></h4>
+      <h4><a href="/docs"><i class="fa-solid fa-folder"></i> Docs</a></h4>
+      <h4><a href="/requestfitur"><i class="fa-solid fa-bullhorn"></i> Req Fitur</a></h4>
+      <hr />
+      <h4 style="text-align: left;">Feature</h4>
+      <a href="/ai"  style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fas fa-robot"></i> Ai</p></a>
+      <a href="/download" style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fas fa-download"></i> Download</p></a>
+      <a href="/fun" style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fa-solid fa-face-laugh-squint"></i> Fun Menu</p></a>
+      <a href="/maker" style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fa-solid fa-pen-to-square"></i> Maker</p></a>
+      <a href="/news" style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fa-solid fa-newspaper"></i> News</p></a>
+      <a href="/primbon" style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fa-solid fa-ghost"></i> Primbon</p></a>
+      <a href="/searching" style="margin-top: 1rem;" class="dropdown-sidebar"><p></p><i class="fa-solid fa-magnifying-glass"></i> Searching</p></a>
+      <a href="/other" style="margin-top: 1rem; margin-bottom: 2em;" class="dropdown-sidebar"><p></p><i class="fa-solid fa-share-from-square"></i> Other</p></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Boxes -->
+  <h1 id="typing-text" style="text-align: center; padding-top: 20px;"></h1>
+  <div class="info-boxes">
+    <div class="info-box">
+      <h2>Quotes <i class="fa-solid fa-face-grin"></i></h2>
+      <div id="quote-container">
+    <h5 id="quote-text"></h5>
+    <h5 id="quote-author"></h5>
+  </div>
+    </div>
+   <div class="info-box">
+      <h2>Total Request <i class="fa-solid fa-arrow-trend-up"></i></h2>
+      <h3><span id="requestCount">0</span></h3>
+  </div> 
+    <div class="info-box">
+      <h2>IP Address <i class="fa-solid fa-satellite-dish"></i></h2>
+      <h3><span id="ip-address">Loading...</span></h3>
+    </div>
+    <div class="info-box">
+      <h2>Time <i class="fas fa-clock"></i></h2>
+      <h3><span id="current-time">Loading...</span><br>
+      <span id="greeting" style="color: skyblue;">Loading...</span></h3>
+    </div>
+    <div class="info-box">
+      <h2>Battery <i class="fas fa-battery-full"></i></h2>
+      <h3><span id="battery-level">Loading...</span>% <br><span id="charging-status"></span></h3>
+    </div>
+    <div class="info-box">
+      <h2>Visitor <i class="fa-solid fa-eye"></i></h2>
+      <h3><span id="visitor-count">Loading...</span></h3>
+    </div>
+    <div class="info-box">
+      <h2>Server <i class="fas fa-server"></i></h2>
+      <p><h3>Runtime: <span id="uptime">Loading...</span></h3></p>
+      <p><h3>Usage : <span id="memory-usage">Loading...</span></h3></p>
+          <p><h3>Hostname: <span id="hostname"></span></h3></p>
+    <p><h3>RAM: <span id="ram"></span> GB</h3></p>
+    <p><h3>CPUs: <span id="cpuCores"></span> core(s) </h3></p>
+    <p><h3>screen resolution: <span id="screenResolution"></span></h3></p>
+    <p><h3>Kecepatan Server: <span id="serverSpeed">Mengukur kecepatan...</span></h3></p>
+    <p><h3>Server load : <span id="serverLoad">Memuat server load...</span></h3></p>
+    </div>
+    <div class="info-box" style="text-align: left;">
+      <h2 style="text-align: center;">Browser <i class="fas fa-globe"></i></h2>
+      <h3>User Agent: <span id="user-agent"></span></h3>
+    <h3>Vendor: <span id="vendor"></span></h3>
+    <h3>Platform: <span id="platform"></span></h3>
+    <h3>Language: <span id="language"></span></h3>
+    <h3>Cookies: <span id="cookies"></span></h3>
+    </div>
+    <div class="info-box"><h2>Information <i class="fa-solid fa-circle-info"></i></h2>
+    <div id="findipwidget"></div><div class="findiplink" id="findipurl">Powered by <a href="http://www.find-ip.net/" >Find-IP.net</a></div><script defer src="https://api.find-ip.net/widget.js?width=260&bg=%23fff&textcol=black&"></script>
+</div>
+    <div class="info-box">
+      <h2 id="request">Request Fitur <i class="fa-solid fa-list"></i></h2>
+      <div id="dashboard"></div>
+    </div>
+    <div class="info-box" style="text-align: left;">
+      <h2><i class="fas fa-newspaper"></i> Thanks To:</h2>
+      <p>1. Allah SWT</p>
+      <p>2. Nabi Muhammad</p>
+      <p>3. My parents</p>
+      <p>4. Ricky (backend)</p>
+      <p>5. Miftah (novice frontend)</p>
+      <p>6. Penyedia Module</p>
+      <p>7. all web rest api users</p>
+    </div>
+  </div>
+
+<footer style="text-align: center;">© 2023 Newbie Team</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script src="https://kit.fontawesome.com/8a2acf6851.js" crossorigin="anonymous"></script>
+  
+  <script src="asset/js/dashboard.js"></script>
+  <script src="/asset/js/base.js"></script>
+</body>
+</html>

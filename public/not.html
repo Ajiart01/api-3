@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Halaman Tidak Ditemukan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(90deg, black, white);
+        }
+        
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+        
+        .error-icon {
+            width: 150px;
+            height: 150px;
+            background-image: url('https://telegra.ph/file/d4231e42a1ccadcd41997.jpg');
+            background-size: cover;
+            animation: blink 1s infinite alternate;
+        }
+        
+        .error-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .error-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: blink 1s infinite alternate;
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon"></div>
+        <h1 class="error-title">Error 404</h1>
+        <p class="error-message">Halaman yang Anda cari tidak ditemukan.</p>
+        <button class="error-button">Kembali</button>
+    </div>
+</body>
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var backButton = document.querySelector('.error-button');
+        backButton.addEventListener('click', function () {
+        
+            window.location.href = '/dashboard';
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,45 @@
+{
+  "name": "azz-api",
+  "version": "1.0.1",
+  "description": "Anjay mabar",
+  "main": "index.js",
+  "dependencies": {
+    "@bochilteam/scraper": "^4.2.4",
+    "@bochilteam/scraper-images": "^1.0.2",
+    "@replit/node-fetch": "^3.1.0",
+    "@types/node": "^18.0.6",
+    "@xct007/frieren-scraper": "^0.0.2",
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "gempa-id-info": "^1.0.5",
+    "google-it": "^1.6.4",
+    "google-tts-api": "^2.0.2",
+    "instagram-url-direct": "^1.0.13",
+    "jimp": "^0.22.10",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.6",
+    "public-ip": "^6.0.1",
+    "scrape-primbon": "^1.1.0",
+    "scrape-youtube": "^2.4.0",
+    "simsimi-api": "^1.0.3",
+    "snapsave-downloader2": "^6.9.5",
+    "stable-diffusion-cjs": "^1.0.7",
+    "wifi-name": "^3.1.1",
+    "ytdl-core": "^4.11.5",
+    "ytmp4": "^1.0.2"
+  },
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "keywords": [
+    "api",
+    "gratis",
+    "Rest API"
+  ],
+  "author": "Ricky",
+  "license": "ISC"
+}
